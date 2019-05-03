@@ -19,4 +19,16 @@ public class RandomNumbersGenerator {
 
         return ListOfNumbers;
     }
+
+    public ArrayList<Integer> generateRandomNumbersOfSections(int minimum, int maximum) {
+        Random rand = new Random();
+
+        ArrayList<Integer> List = new ArrayList<>(maximum - minimum);
+
+        for (int i = 0; i <= List.size(); i++) {
+            int n = rand.nextInt(maximum - minimum + 1) + minimum;
+            List.add(n);
+        }
+        return List;
+    }
 }
