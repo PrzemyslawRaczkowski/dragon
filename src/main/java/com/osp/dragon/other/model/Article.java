@@ -1,4 +1,4 @@
-package com.osp.dragon.model;
+package com.osp.dragon.other.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

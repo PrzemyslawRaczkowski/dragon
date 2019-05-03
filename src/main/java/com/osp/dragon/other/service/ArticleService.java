@@ -1,13 +1,12 @@
-package com.osp.dragon.service;
+package com.osp.dragon.other.service;
 
-import com.osp.dragon.model.Article;
+import com.osp.dragon.other.model.Article;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class ArticleService {

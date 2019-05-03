@@ -1,6 +1,6 @@
-package com.osp.dragon.service;
+package com.osp.dragon.other.service;
 
-import com.osp.dragon.model.Article;
+import com.osp.dragon.other.model.Article;
 import org.junit.Test;
 
 import java.util.HashMap;

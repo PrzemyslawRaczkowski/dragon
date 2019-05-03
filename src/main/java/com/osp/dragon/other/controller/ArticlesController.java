@@ -1,7 +1,7 @@
-package com.osp.dragon;
+package com.osp.dragon.other.controller;
 
-import com.osp.dragon.model.Article;
-import com.osp.dragon.service.ArticleService;
+import com.osp.dragon.other.model.Article;
+import com.osp.dragon.other.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
