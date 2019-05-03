@@ -46,5 +46,4 @@ public class ArticleServiceTest {
         // then:
         assertNull(result);
     }
-
 }
