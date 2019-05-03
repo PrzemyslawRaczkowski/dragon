@@ -8,6 +8,7 @@ import java.util.Random;
 
 @Component
 public class RandomNumbersGenerator {
+
     public List<Integer> generate() {
         Random random = new Random();
         List<Integer> ListOfNumbers = new ArrayList<>(100);
@@ -20,15 +21,16 @@ public class RandomNumbersGenerator {
         return ListOfNumbers;
     }
 
-    public ArrayList<Integer> generateRandomNumbersOfSections(int minimum, int maximum) {
+    public List<Integer> generateNumbersFromRange(int minimum, int maximum, int numberOfSamples) {
         Random rand = new Random();
 
-        ArrayList<Integer> List = new ArrayList<>(maximum - minimum);
+        List<Integer> list = new ArrayList<>();
 
-        for (int i = 0; i <= List.size(); i++) {
+        for (int i = 0; i <= numberOfSamples; i++) {
             int n = rand.nextInt(maximum - minimum + 1) + minimum;
-            List.add(n);
+            list.add(n);
         }
-        return List;
+
+        return list;
     }
 }
