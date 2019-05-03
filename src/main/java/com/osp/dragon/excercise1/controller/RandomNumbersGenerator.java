@@ -9,28 +9,20 @@ import java.util.Random;
 @Component
 public class RandomNumbersGenerator {
 
-    public List<Integer> generate() {
-        Random random = new Random();
-        List<Integer> ListOfNumbers = new ArrayList<>(100);
+        public int generate(int min, int max) {
 
-        for (int i = 0; i < 100; i++) {
-            int n = random.nextInt(101);
-            ListOfNumbers.add(n);
+            Random random = new Random();
+
+            return random.nextInt(max - min + 1) + min;
         }
 
-        return ListOfNumbers;
-    }
+        public ArrayList<Integer> generateRandomNumbersOfSections(int minimum, int maximum, int numberOfSamples) {
 
-    public List<Integer> generateNumbersFromRange(int minimum, int maximum, int numberOfSamples) {
-        Random rand = new Random();
+            ArrayList<Integer> List = new ArrayList<>();
 
-        List<Integer> list = new ArrayList<>();
-
-        for (int i = 0; i <= numberOfSamples; i++) {
-            int n = rand.nextInt(maximum - minimum + 1) + minimum;
-            list.add(n);
+            for (int i = 0; i <= numberOfSamples; i++) {
+                generate(minimum, maximum);
+            }
+            return List;
         }
-
-        return list;
     }
-}
