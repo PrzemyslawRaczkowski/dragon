@@ -23,12 +23,13 @@ public class NumbersController {
     @ResponseBody
     public List<Integer> generateRandomNumbers() {
         Random random = new Random();
-        ArrayList<Integer> ListOfNumbers = new ArrayList<>(100);
+        List<Integer> ListOfNumbers = new ArrayList<>(100);
 
         for (int i = 0; i < 100; i++) {
             int n = random.nextInt(101);
             ListOfNumbers.add(n);
         }
+
         return ListOfNumbers;
     }
 
