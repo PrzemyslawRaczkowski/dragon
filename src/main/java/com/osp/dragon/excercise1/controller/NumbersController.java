@@ -1,9 +1,6 @@
 package com.osp.dragon.excercise1.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +16,10 @@ public class NumbersController {
 
     @GetMapping
     @ResponseBody
-    public List<Integer> getRandomNumbers() {
-        return generator.generate();
+    public List<Integer> getRandomNumbers(@RequestParam Integer min,
+                                          @RequestParam Integer max,
+                                          @RequestParam Integer numberOfSamples) {
+        return generator.generateRandomNumbersFromRange(min, max, numberOfSamples);
     }
 
 }
