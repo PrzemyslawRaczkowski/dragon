@@ -1,6 +1,5 @@
-/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/other/model/Article.java
+/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/model/Article.java
+/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/controller/ArticlesController.java
 /home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/Application.java
-/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/other/service/ArticleService.java
-/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/excercise1/controller/RandomNumbersGenerator.java
-/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/other/controller/ArticlesController.java
-/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/excercise1/controller/NumbersController.java
+/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/WebConfig.java
+/home/raczkowski/Projects/dragon/src/main/java/com/osp/dragon/service/ArticleService.java
