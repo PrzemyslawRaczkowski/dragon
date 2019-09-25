@@ -3,6 +3,7 @@ package com.osp.dragon.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
@@ -21,18 +22,22 @@ public class Article {
     private final String author;
 
     @JsonProperty("creationDate")
-    private String creationDate;
+    private LocalDate creationDate;
 
     public Article(int id,
                    String title,
                    String content,
                    String author,
-                   String creationDate) {
+                   LocalDate creationDate) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;
         this.creationDate = creationDate;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
     }
 
     @Override
