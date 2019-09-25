@@ -55,6 +55,8 @@ public class ArticleService {
 
         LocalDate date = LocalDate.now();
 
+
+//        TODO: Stworzyć realne nazwy artykułow z Autorami i Tytułami -> zapisać to do pliku w formacie csv albo txt, stworzyć klase i metody wczytujące dane
         Article article1 = new Article(1, "Title", "First Article", "raczkowski", date);
         Article article2 = new Article(2, "Title", "First Article", "raczkowski", date.minusDays(1));
         Article article3 = new Article(3, "Title", "First Article", "raczkowski", date.minusWeeks(2));
