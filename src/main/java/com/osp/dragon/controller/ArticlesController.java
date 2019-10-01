@@ -25,7 +25,7 @@ public class ArticlesController {
 
     @GetMapping(value = "/{id}")
     @ResponseBody
-    public Article getArticle(@PathVariable String id) {
+    public Article getArticle(@PathVariable int id) {
         return articleService.getArticleById(id);
     }
 

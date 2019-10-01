@@ -3,11 +3,12 @@ package com.osp.dragon.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-public class Article {
+public class Article implements Serializable {
 
     @JsonProperty("id")
     private final int id;

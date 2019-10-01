@@ -3,6 +3,8 @@ package com.osp.dragon.service;
 import com.osp.dragon.model.Article;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -14,18 +16,19 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class ArticleService {
 
-    private final Map<String, Article> articlesMap;
 
-    public ArticleService() {
-        this.articlesMap = initializeArticlesCache();
+    List<Article> articlesList;
+
+    public ArticleService() throws IOException, ClassNotFoundException {
+        this.articlesList = initializeArticles();
     }
 
-    public Article getArticleById(String id) {
-        return articlesMap.get(id);
+    public Article getArticleById(int id) {
+        return articlesList.get(id);
     }
 
     public List<Article> getAllArticles() {
-        return new ArrayList<>(articlesMap.values());
+        return new ArrayList<>(articlesList);
     }
 
     public List<Article> getNewestArticles() {
@@ -50,28 +53,11 @@ public class ArticleService {
                 .collect(toList());
     }
 
-    private Map<String, Article> initializeArticlesCache() {
-        Map<String, Article> articlesMap = new HashMap<>();
+    private List<Article> initializeArticles() throws IOException, ClassNotFoundException {
+        ArticlesReader articlesReader = new ArticlesReader();
+        List<Article> articleList = new ArrayList<>();
+        articleList.addAll(articlesReader.readArticlesFromFile());
 
-        LocalDate date = LocalDate.now();
-
-
-//        TODO: Stworzyć realne nazwy artykułow z Autorami i Tytułami -> zapisać to do pliku w formacie csv albo txt, stworzyć klase i metody wczytujące dane
-        Article article1 = new Article(1, "Title", "First Article", "raczkowski", date);
-        Article article2 = new Article(2, "Title", "First Article", "raczkowski", date.minusDays(1));
-        Article article3 = new Article(3, "Title", "First Article", "raczkowski", date.minusWeeks(2));
-        Article article4 = new Article(4, "Title", "First Article", "raczkowski", date);
-        Article article5 = new Article(5, "Title", "First Article", "raczkowski", date.minusDays(1));
-        Article article6 = new Article(6, "Title", "First Article", "raczkowski", date);
-
-
-        articlesMap.put("1", article1);
-        articlesMap.put("2", article2);
-        articlesMap.put("3", article3);
-        articlesMap.put("4", article4);
-        articlesMap.put("5", article5);
-        articlesMap.put("6", article6);
-
-        return articlesMap;
+        return articleList;
     }
 }
