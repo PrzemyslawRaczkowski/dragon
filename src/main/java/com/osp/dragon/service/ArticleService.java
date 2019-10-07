@@ -15,16 +15,15 @@ import static java.util.stream.Collectors.toList;
 
 @Service
 public class ArticleService {
-
-
-    List<Article> articlesList;
+    private List<Article> articlesList;
 
     public ArticleService() throws IOException, ClassNotFoundException {
-        this.articlesList = initializeArticles();
+        ArticlesReader articlesReader = new ArticlesReader();
+        this.articlesList = articlesReader.readAllArticlesFromFile();
     }
 
     public Article getArticleById(int id) {
-        return articlesList.get(id);
+        return articlesList.get(id - 1);
     }
 
     public List<Article> getAllArticles() {
@@ -51,13 +50,5 @@ public class ArticleService {
         return getAllArticles().stream()
                 .sorted(comparator)
                 .collect(toList());
-    }
-
-    private List<Article> initializeArticles() throws IOException, ClassNotFoundException {
-        ArticlesReader articlesReader = new ArticlesReader();
-        List<Article> articleList = new ArrayList<>();
-        articleList.addAll(articlesReader.readArticlesFromFile());
-
-        return articleList;
     }
 }

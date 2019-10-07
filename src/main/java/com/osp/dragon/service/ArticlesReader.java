@@ -12,24 +12,24 @@ public class ArticlesReader {
 
     private static final String FILE_NAME = "C:/Users/Raczkowski/IdeaProjects/dragon2/src/main/resources/articles.csv";
 
-    public ArrayList<Article> readArticlesFromFile() throws IOException, ClassNotFoundException {
+    public List<Article> readAllArticlesFromFile() throws IOException, ClassNotFoundException {
 
         List<Article> objects = new ArrayList<>();
-        FileInputStream fis = new FileInputStream(FILE_NAME);
-        ObjectInputStream ois = new ObjectInputStream(fis);
+        FileInputStream fileInputStream = new FileInputStream(FILE_NAME);
+        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
-        Article obj;
+        Article article;
 
-        boolean isExist = true;
+        boolean doesExist = true;
 
-        while (isExist) {
-            if (fis.available() != 0) {
-                obj = (Article) ois.readObject();
-                objects.add(obj);
+        while (doesExist) {
+            if (fileInputStream.available() != 0) {
+                article = (Article) objectInputStream.readObject();
+                objects.add(article);
             } else {
-                isExist = false;
+                doesExist = false;
             }
         }
-        return (ArrayList<Article>) objects;
+        return objects;
     }
 }
