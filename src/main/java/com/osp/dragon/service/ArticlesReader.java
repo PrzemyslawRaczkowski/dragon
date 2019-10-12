@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ArticlesReader {
 
-    private static final String FILE_NAME = "C:/Users/Raczkowski/IdeaProjects/dragon2/src/main/resources/articles.csv";
+    private static final String FILE_NAME = "articles.csv";
 
     public List<Article> readAllArticlesFromFile() throws IOException, ClassNotFoundException {
 
