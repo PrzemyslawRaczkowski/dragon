@@ -1,33 +1,35 @@
 package com.osp.dragon.service;
 
+import com.osp.dragon.exception.ArticleNotFoundException;
 import com.osp.dragon.model.Article;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 
 import static com.osp.dragon.service.ArticleSortType.DATE_ASC;
 import static com.osp.dragon.service.ArticleSortType.DATE_DESC;
+import static java.lang.String.valueOf;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
 @Service
 public class ArticleService {
-    private List<Article> articlesList;
+    private final ArticlesReader articlesReader;
 
-    public ArticleService() throws IOException, ClassNotFoundException {
-        ArticlesReader articlesReader = new ArticlesReader();
-        this.articlesList = articlesReader.readAllArticlesFromFile();
+    public ArticleService(ArticlesReader articlesReader) {
+        this.articlesReader = articlesReader;
     }
 
     public Article getArticleById(int id) {
-        return articlesList.get(id - 1);
+        return getAllArticles().stream()
+                .filter(article -> article.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new ArticleNotFoundException(valueOf(id)));
     }
 
     public List<Article> getAllArticles() {
-        return new ArrayList<>(articlesList);
+        return articlesReader.readAllArticlesFromFile();
     }
 
     public List<Article> getNewestArticles() {

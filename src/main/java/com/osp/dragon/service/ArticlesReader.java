@@ -12,7 +12,7 @@ public class ArticlesReader {
 
     private static final String FILE_NAME = "articles.csv";
 
-    public List<Article> readAllArticlesFromFile() throws IOException, ClassNotFoundException {
+    public List<Article> readAllArticlesFromFile() {
 
         List<Article> objects = new ArrayList<>();
         FileInputStream fileInputStream = new FileInputStream(FILE_NAME);

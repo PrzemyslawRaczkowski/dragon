@@ -37,6 +37,10 @@ public class Article implements Serializable {
         this.creationDate = creationDate;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public LocalDate getCreationDate() {
         return creationDate;
     }
