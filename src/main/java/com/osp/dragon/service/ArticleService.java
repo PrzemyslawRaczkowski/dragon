@@ -15,10 +15,10 @@ import static java.util.stream.Collectors.toList;
 
 @Service
 public class ArticleService {
-    private final ArticlesReader articlesReader;
+    private final ArticlesMockedRepository repository;
 
-    public ArticleService(ArticlesReader articlesReader) {
-        this.articlesReader = articlesReader;
+    public ArticleService(ArticlesMockedRepository repository) {
+        this.repository = repository;
     }
 
     public Article getArticleById(int id) {
@@ -29,7 +29,7 @@ public class ArticleService {
     }
 
     public List<Article> getAllArticles() {
-        return articlesReader.readAllArticlesFromFile();
+        return repository.getAllArticles();
     }
 
     public List<Article> getNewestArticles() {
