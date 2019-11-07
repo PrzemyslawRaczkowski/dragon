@@ -36,12 +36,12 @@ public class ArticlesMockedRepository {
 
     private Map<Integer, Article> loadArticles() {
         return of(
-                new Article(1, "Title_1", "Content_1", "Author_1", now()),
+                new Article(1, "Title_1", "Content_1", "Author_1", now().minusDays(1)),
                 new Article(2, "Title_2", "Content_2", "Author_2", now()),
-                new Article(3, "Title_3", "Content_3", "Author_3", now()),
-                new Article(4, "Title_4", "Content_4", "Author_4", now()),
-                new Article(5, "Title_5", "Content_5", "Author_5", now()),
-                new Article(6, "Title_6", "Content_6", "Author_6", now())
+                new Article(3, "Title_3", "Content_3", "Author_3", now().minusDays(2)),
+                new Article(4, "Title_4", "Content_4", "Author_4", now().minusMonths(1)),
+                new Article(5, "Title_5", "Content_5", "Author_5", now().minusDays(3)),
+                new Article(6, "Title_6", "Content_6", "Author_6", now().minusMonths(2))
         ).collect(toMap(Article::getId, article -> article));
     }
 
