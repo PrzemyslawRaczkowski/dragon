@@ -39,6 +39,9 @@ public class ArticlesController {
         return articleService.sortArticles(sortType);
     }
 
-
-
+    @GetMapping(value = "/pag")
+    @ResponseBody
+    public List<Article> articlesPagination(int size){
+        return articleService.articlesPagination(size);
+    }
 }

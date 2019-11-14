@@ -10,7 +10,6 @@ import java.util.*;
 import static com.osp.dragon.service.ArticleSortType.DATE_ASC;
 import static com.osp.dragon.service.ArticleSortType.DATE_DESC;
 import static java.lang.String.valueOf;
-import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
 @Service
@@ -52,5 +51,14 @@ public class ArticleService {
         return getAllArticles().stream()
                 .sorted(comparator)
                 .collect(toList());
+    }
+
+    public List<Article> articlesPagination(int size) {
+        if (size > getAllArticles().size() || size == 0 && size < getAllArticles().size()) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            return getAllArticles().stream()
+                    .limit(size).collect(toList());
+        }
     }
 }
